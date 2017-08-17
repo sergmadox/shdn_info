@@ -2,7 +2,7 @@ import shodan
 import sys
 
 # Configuration
-API_KEY = "mTqhUFdzBOdTWRjEbGE5DzsZeS5vHf2r"
+API_KEY = "your key"
 
 # Input validation
 if len(sys.argv) == 1:
@@ -19,7 +19,7 @@ try:
         # Loop through the matches and print each IP
         
         for service in result['matches']:
-                print (service['ip_str'])
+                print (service['ip_str'] )
                 print (service['hostnames'])
                 print ('=========================')
         print ('Total result ' + str(result['total']))
