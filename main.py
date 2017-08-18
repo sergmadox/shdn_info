@@ -2,7 +2,7 @@ import shodan
 import sys
 
 # Configuration
-API_KEY = "your key"
+API_KEY = "your token"
 
 # Input validation
 if len(sys.argv) == 1:
@@ -19,9 +19,8 @@ try:
         # Loop through the matches and print each IP
         
         for service in result['matches']:
-                print (service['ip_str'] )
-                print (service['hostnames'])
-                print ('=========================')
+                print ('IP = '+ service['ip_str'] + '\n'+'isp  = ' + service['isp'] + '\nTransport protocol = ' + service['transport'] +'\n' + 'port is '+ str(service['port']) +
+                        '\n' + 'country: ' + service['location']['country_name'] + '\nHostname' + str(service['hostnames']) + '\nOS = ' +str(service.get('os','n/a')) + '\n==============================')
         print ('Total result ' + str(result['total']))
 except Exception as e:
         print ('Error: %s') % e
